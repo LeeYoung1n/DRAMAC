@@ -1,7 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page session="false" %>
+<%@ include file="HeadFoot/Header.jsp" %>
+
+
 <html>
 <head>
 	<title>Home</title>
@@ -14,3 +16,6 @@
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
+
+<%@ include file="HeadFoot/Footer.jsp" %>
+
