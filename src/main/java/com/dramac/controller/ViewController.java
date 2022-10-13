@@ -24,7 +24,6 @@ public class ViewController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String Main(Locale locale, Model model) {
-		logger.info("Welcome Main! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -33,7 +32,7 @@ public class ViewController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "Main";
+		return "Main/main";
 	}
 	
 }
