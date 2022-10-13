@@ -6,7 +6,7 @@
 
 <html>
 <head>
-	<title>Home</title>
+	<title>홈화면</title>
 </head>
 <body>
 <h1>
