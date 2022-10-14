@@ -42,7 +42,7 @@
              <div class="h_loginbox">
 	                 <!--<a href="/login"><button>로그인</button></a> -->
 	                <c:if test="${empty sessionScope.user_id}">
-	                 	<a href="/insert" class="h_but">회원가입</a>
+	                 	<a href="/join" class="h_but">회원가입</a>
 	                 	<a href="/login" class="h_but">로그인</a>
 	                </c:if>
 					<c:if test="${not empty sessionScope.user_id}">

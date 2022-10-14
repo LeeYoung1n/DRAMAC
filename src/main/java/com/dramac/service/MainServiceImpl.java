@@ -14,6 +14,10 @@ public class MainServiceImpl implements MainService{
 	 @Autowired 
 	 MainMapper mm;
 	 
+	 public void join(MainVO mainVO) {
+	        mm.join(mainVO);
+	    }
+	 
 	 public boolean login(MainVO mainVO, HttpSession session) {
 	      	MainVO login=mm.login(mainVO);
 	      	boolean result=false;

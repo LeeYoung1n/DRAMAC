@@ -31,21 +31,26 @@ public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	//홈화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String Main(Locale locale, Model model) {
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+	public String Main() {
 		return "Main/home";
 	}
+	
+	// 회원가입 
+    @RequestMapping(value = "/join", method = RequestMethod.GET)
+    public String join() {
+    	return "Main/join";
+    }
+    
+	//회원가입(insert 이루어짐)
+    @RequestMapping(value = "/join", method = RequestMethod.POST)
+    public String joinPost(MainVO mainVO) {
+    	ms.join(mainVO);
+    	return "redirect:/login";
+    }
+	
+	
 	
 	// 로그인
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -69,7 +74,6 @@ public class MainController {
          rttr.addAttribute("loginfail");
          return "redirect:/login";
         }
-        
     }
 	
 }

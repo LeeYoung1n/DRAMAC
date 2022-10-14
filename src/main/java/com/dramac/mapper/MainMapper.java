@@ -7,6 +7,8 @@ import com.dramac.model.MainVO;
 @Mapper
 public interface MainMapper {
 	
+	public void join(MainVO mainVO);
+	
 	public MainVO login(MainVO mainVO);
 
 }
