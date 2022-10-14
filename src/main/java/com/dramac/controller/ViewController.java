@@ -32,7 +32,7 @@ public class ViewController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "Main/main";
+		return "Main/home";
 	}
 	
 }
