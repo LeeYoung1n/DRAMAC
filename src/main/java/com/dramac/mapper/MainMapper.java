@@ -10,5 +10,9 @@ public interface MainMapper {
 	public void join(MainVO mainVO);
 	
 	public MainVO login(MainVO mainVO);
+	
+	public int idCheck(String user_id);
+	    
+    public int phoneCheck(String user_phone);
 
 }

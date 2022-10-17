@@ -27,5 +27,16 @@ public class MainServiceImpl implements MainService{
 	      	}
 	      	return result;
 	    }
+	 
+	 public int idCheck(String user_id) throws Exception {
+			
+		 return mm.idCheck(user_id);
+	 }
+	    
+	 public int phoneCheck(String user_phone) throws Exception {
+			
+		 return mm.phoneCheck(user_phone);
+
+	 }
 
 }

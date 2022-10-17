@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+
+
+/* 이름 유효성 */
+.join_nameNone{
+	color : red;
+	display : none;
+}
+
+.join_nameFalse{
+	color : red;
+	display : none;
+}
+
+.join_nameTrue{
+	color : green;
+	display : none;
+}
+
+
+/*아이디 유효성*/
+.join_idNone{
+	color : red;
+	display : none;
+}
+
+.join_idHave{
+	color : red;
+	display : none; 
+}
+
+.join_idFalse{
+	color : red;
+	display : none;
+}
+
+.join_idTrue{
+	color : green;
+	display : none; 
+}
+
+
+/* 비밀번호 유효성 */
+.join_pwNone{
+	color : red;
+	display : none;
+}
+
+.join_pwFalse{
+	color : red;
+	display : none;
+}
+
+.join_pwTrue{
+	color : green;
+	display : none;
+}
+
+
+/* 비밀번호 재검사 */
+.join_repwNone{
+	color : red;
+	display : none;
+}
+
+.join_repwFalse{
+	color : red;
+	display : none;
+}
+
+.join_repwTrue{
+	color : green;
+	display : none;
+}
+
+
+/* 이메일 유효성 */
+.join_emailNone{
+	color : red;
+	display : none;
+}
+
+.join_emailHave{
+	color : red;
+	display : none; 
+}
+
+.join_emailFalse{
+	color : red;
+	display : none;
+}
+
+.join_emailTrue{
+	color : green;
+	display : none; 
+}
+
+
+/* 휴대폰 유효성*/
+.join_phoneNone{
+	color : red;
+	display : none;
+}
+
+.join_phoneHave{
+	color : red;
+	display : none;
+}
+
+.join_phoneFalse{
+	color : red;
+	display : none;
+}
+
+.join_phoneTrue{
+	color : green;
+	display : none;
+}
+
+
+
+/* 동의사항 유효성 */
+.join_agreeNone{
+	color : red;
+	display : none;
+}
+

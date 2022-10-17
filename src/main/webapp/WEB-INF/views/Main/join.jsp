@@ -4,6 +4,8 @@
     
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+<link rel="stylesheet" href="../../../resources/CSS/Main_CSS/join.css">
+
 
 <div class="join_border">
 
@@ -268,4 +270,4 @@
 </div>
 
 
-<script src="/resources/JS/Main/join.js"></script>
+<script src="/resources/JS/Main_JS/join.js"></script>
