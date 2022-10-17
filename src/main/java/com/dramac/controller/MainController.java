@@ -75,5 +75,15 @@ public class MainController {
          return "redirect:/login";
         }
     }
+    
+    
+    
+  //로그아웃
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session, RedirectAttributes rttr) {
+		session.invalidate();
+		rttr.addAttribute("logout");
+		return "redirect:/";
+	}
 	
 }

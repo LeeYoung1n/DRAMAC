@@ -1,13 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인</title>
-</head>
-<body>
+
+
 <div id="login_outborder">
 	<form method="post" action="/login" accept-charset="UTF-8">
 
@@ -58,5 +53,4 @@
 	</form>
 
 </div>
-</body>
-</html>
+
