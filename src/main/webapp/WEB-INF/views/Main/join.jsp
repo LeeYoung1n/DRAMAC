@@ -7,6 +7,11 @@
 <link rel="stylesheet" href="../../../resources/CSS/Main_CSS/join.css">
 
 
+<div id="findpw_homelogo">
+		<a class="findpw_a" href="/"><img class="login_img" src="../../../resources/image/HeaderImg/푸렌드2.png"></a>	
+</div>
+
+
 <div class="join_border">
 
 	<form action="/join" method ="post" name="join_form"  id="join_form">
@@ -178,7 +183,7 @@
 				
 				
 				<!-- 동의사항 함수 -->
-				<!-- <script type="text/javascript">
+				<script type="text/javascript">
 					$(document).ready(function() {
 						$("#join_allAgree").click(function() {
 							if($("#join_allAgree").is(":checked")) $("input[class=join_agreeChk]").prop("checked", true);
@@ -193,7 +198,7 @@
 							else $("#join_allAgree").prop("checked", true); 
 						});
 					});
-				</script> -->
+				</script>
 				
 				<div class="join_agree_border">
 					<div>

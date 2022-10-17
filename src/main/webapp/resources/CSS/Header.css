@@ -41,6 +41,7 @@
 }
 #h_menu{
     margin:0 auto;
+    display : inline;
 }
 #h_s1{
     display:flex;

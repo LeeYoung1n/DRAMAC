@@ -119,7 +119,7 @@ public class MainController {
  		}	
 	}
   	
-  	// 이메일 인증
+//  	// 이메일 인증
 // 	@RequestMapping(value="/emailCheck", method=RequestMethod.GET)
 // 	@ResponseBody
 // 	public String emailCheckGET(String user_email) throws Exception{

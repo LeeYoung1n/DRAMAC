@@ -50,7 +50,7 @@
 						<a href="/logout" class="h_but">로그아웃</a>
 						<a href="/mypage" class="h_but">마이페이지</a>
 						<c:if test="${login.user_code == 00}">
-							<a href="/shopRegistration" class="h_but">상품등록</a>
+							<a href="/shopRegistration" class="h_but">관리자 페이지</a>
 						</c:if>
 					</c:if>
              </div><!-- h_logoBox -->
@@ -66,16 +66,26 @@
             </div><!-- h_s1 -->
             <div class="h_navBox">
            
-                <table frame="void" id="h_menu">
-                    <tr>
-                        <td class="h_nav"><a href="/">프로그램 소개</a></td>
-                        <td class="h_nav"><a href="/">등장인물</a></td>
-                        <td class="h_nav"><a href="/">다시보기</a></td>
-                        <td class="h_nav"><a href="/">영상실</a></td>
-                        <td class="h_nav"><a href="/">사진첩</a></td>
-                        <td class="h_nav"><a href="/">시청자 게시판</a></td>
-                    </tr>
-                </table>
+                <ul frame="void" id="h_menu">                 
+                        <li class="h_nav"><a href="/">프로그램 소개</a></li>
+                        <li class="h_nav">등장인물
+                        	<ul>
+                        		<li><a href="/">등장인물 소개</a></li>
+                        		<li><a href="/">인물관계도</a></li>
+                        	</ul>
+                        </li>
+                        <li class="h_nav"><a href="/">다시보기</a></li>
+                        <li class="h_nav">영상실
+                        	<ul>
+	                       		<li><a href="/">방송클립</a></li>
+	                       		<li><a href="/">예고영상</a></li>
+	                       		<li><a href="/">메이킹&기획</a></li>
+                        	</ul>
+                        </li>
+                        <li class="h_nav"><a href="/">사진첩</a></li>
+                        <li class="h_nav"><a href="/">시청자 게시판</a></li>
+                </ul>
             </div> <!-- navBox -->
         </div> <!-- header_main -->
     </div> <!-- header -->
+</div>
