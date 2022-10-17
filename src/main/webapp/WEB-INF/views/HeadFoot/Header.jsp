@@ -68,9 +68,12 @@
            
                 <table frame="void" id="h_menu">
                     <tr>
-                        <td class="h_nav"><a href="/shop">쇼핑</a></td>
-                        <td class="h_nav"><a href="/community">커뮤니티</a></td>
-                        <td class="h_nav"><a href="/notice?sep=noti">고객센터</a></td>
+                        <td class="h_nav"><a href="/">프로그램 소개</a></td>
+                        <td class="h_nav"><a href="/">등장인물</a></td>
+                        <td class="h_nav"><a href="/">다시보기</a></td>
+                        <td class="h_nav"><a href="/">영상실</a></td>
+                        <td class="h_nav"><a href="/">사진첩</a></td>
+                        <td class="h_nav"><a href="/">시청자 게시판</a></td>
                     </tr>
                 </table>
             </div> <!-- navBox -->
