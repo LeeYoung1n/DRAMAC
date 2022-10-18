@@ -41,7 +41,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type:"post",
-			url:"/photouploadAjaxAction",
+			url:"/photoUploadAction",
 			data:formData,
 			contentType:false,
 			processData:false

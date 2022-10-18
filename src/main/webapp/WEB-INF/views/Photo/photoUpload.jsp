@@ -19,7 +19,7 @@
 </div>
 <div>
 	<ul>
-		<li><img src="/resources/img/"></li>
+		<li><img src=" "></li>
 	</ul>
 </div>
 </body>

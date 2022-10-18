@@ -56,12 +56,12 @@ public class PhotoController {
 
 	
 	
-	@RequestMapping(value = "/photouploadAjax", method = RequestMethod.GET)
+	@RequestMapping(value = "/photoUpload", method = RequestMethod.GET)
 	public String uploadAjax() {
-		return "Photo/photouploadAjax";
+		return "Photo/photoUpload";
 	}
 	
-	@RequestMapping(value = "/photouploadAjaxAction", method = RequestMethod.POST)
+	@RequestMapping(value = "/photoUploadAction", method = RequestMethod.POST)
 	public void photouploadAjaxPost(MultipartFile[] uploadFile) {
 		
 		String uploadFolder = "E:\\drama_upload";

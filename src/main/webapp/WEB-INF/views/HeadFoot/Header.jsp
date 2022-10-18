@@ -82,8 +82,8 @@
 	                       		<li><a href="/">메이킹&기획</a></li>
                         	</ul>
                         </li>
-                        <li class="h_nav"><a href="/">사진첩</a></li>
-                        <li class="h_nav"><a href="/">시청자 게시판</a></li>
+                        <li class="h_nav"><a href="/photoupload">사진첩</a></li>
+                        <li class="h_nav"><a href="/">시청자 게시</a></li>
                 </ul>
             </div> <!-- navBox -->
         </div> <!-- header_main -->
