@@ -48,9 +48,9 @@
 					<c:if test="${not empty sessionScope.user_id}">
                         <span class="h_loginmsg h_but" style="font-weight: bold; margin:0;">${sessionScope.user_id}</span><span class="h_but" style="margin:0">님 환영합니다.</span>
 						<a href="/logout" class="h_but">로그아웃</a>
-						<a href="/mypage" class="h_but">마이페이지</a>
+						<a href="/mypage" class="h_but">내 정보</a>
 						<c:if test="${login.user_code == 00}">
-							<a href="/shopRegistration" class="h_but">관리자 페이지</a>
+							<a href="/" class="h_but">관리자 페이지</a>
 						</c:if>
 					</c:if>
              </div><!-- h_logoBox -->

@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<link rel="stylesheet" href="../../../resources/CSS/Main_CSS/login.css">
 
 <div id="login_outborder">
 	<form method="post" action="/login" accept-charset="UTF-8">
@@ -9,6 +10,7 @@
 	<div id="login_homelogo">
 		<a class="login_a" href="/"><img class="login_img" src="../../../resources/image/main_image/home_logo_ex.png"></a>	
 	</div>
+	
 
 	<div id="login_border">
 		
