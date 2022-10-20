@@ -25,13 +25,13 @@ public class PhotoController {
 		PhotoService ps; 
 		
 		
-		@RequestMapping(value="/Photo/photoUpload", method = RequestMethod.GET)
+		@RequestMapping(value="/photo/Write", method = RequestMethod.GET)
 		public String write() {
-			return "/Photo/photoUpload";
+			return "/Photo/photoWrite";
 		}
 		
 		
-		@RequestMapping(value="/Photo/photoUpload", method = RequestMethod.POST)
+		@RequestMapping(value="/photo/Write", method = RequestMethod.POST)
 		public String writePost(PhotoBoardVO pbvo) {
 			System.out.println("service??"+pbvo);
 			ps.write(pbvo);
