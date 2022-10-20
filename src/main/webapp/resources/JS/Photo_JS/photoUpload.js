@@ -70,7 +70,7 @@ $(document).ready(function(){
 					}
 				})
 				$("#phtUp_Result ul").html(str);
-				$("#phtUp_form").append(input);
+				$("#phtUp_form").append(input).submit();
 			}
 		})
 	})
