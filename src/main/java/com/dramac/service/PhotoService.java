@@ -23,6 +23,6 @@ public interface PhotoService {
 	public int total(CriteriaVO cri);
 
 
-	public ArrayList<PhotoAttachVO> attachlist(int bno);
+	public ArrayList<PhotoAttachVO> attachlist(int pht_bno);
 
 }

@@ -60,7 +60,7 @@ public class PhotoController {
 		@RequestMapping(value = "/photo/Modify", method = RequestMethod.POST)
 	    public String modify(PhotoBoardVO pbvo, RedirectAttributes rttr) {
 	    	ps.modify(pbvo);
-	    	rttr.addAttribute("bno", pbvo.getBno());
+	    	rttr.addAttribute("bno", pbvo.getPht_bno());
 	    	return "redirect:/Photo/photoList";
 	    }
 		

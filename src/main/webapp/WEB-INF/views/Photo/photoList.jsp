@@ -7,14 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/resources/js/list.js"></script>
+<script type="text/javascript" src="/resources/JS/Photo_JS/photoList.js"></script>
 </head>
 <body>
 
 <h1>개인 게시판 목록 리스트</h1>
 
-	<a href="/Board/write"><button>글쓰기</button></a>
-	<form id="searchForm" action="/Board/list">
+	<a href="/Photo/photoUpload"><button>글쓰기</button></a>
+	<form id="searchForm" action="/Photo/photoList">
 		<select name="type">
 			<option value="T">제목</option>
 			<option value="C">내용</option>

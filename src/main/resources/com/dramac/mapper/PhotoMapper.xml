@@ -9,13 +9,13 @@
 
 	<insert id="write">
 	
-		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
-			select max(bno)+1 bno
+		<selectKey keyProperty="pht_bno" order="BEFORE" resultType="int">
+			select max(pht_bno)+1 pht_bno
 			from drama_photoboard;
 		</selectKey>	
 	
-		insert into drama_photoboard(bno, title, content)
-		values (#{bno}, #{title}, #{content})
+		insert into drama_photoboard(pht_bno, pht_title, pht_content)
+		values (#{pht_bno}, #{pht_title}, #{pht_content})
 	</insert>
 	
 	
@@ -27,22 +27,22 @@
 				<if test = "keyword != null">
 				<choose>
 					<when test="type == 'T'.toString()">
-					where title like concat('%', #{keyword}, '%')
+					where pht_title like concat('%', #{keyword}, '%')
 					</when>
 					<when test="type == 'C'.toString()">
-					where id like concat('%', #{keyword}, '%')
+					where user_id like concat('%', #{keyword}, '%')
 					</when>
 					<when test="type == 'W'.toString()">
-					where content like concat('%', #{keyword}, '%')
+					where pht_content like concat('%', #{keyword}, '%')
 					</when>
 					<otherwise>
-					where title like concat('%', #{keyword}, '%')
-					OR content like concat('%', #{keyword}, '%')
+					where pht_title like concat('%', #{keyword}, '%')
+					OR pht_content like concat('%', #{keyword}, '%')
 					</otherwise>
 				</choose>
 				
 				</if>
-				order by bno desc
+				order by pht_bno desc
 			) as photoList
 			<![CDATA[
 				where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
@@ -51,22 +51,22 @@
 	
 	
 	<select id = "detail" resultType="com.dramac.model.PhotoBoardVO">
-		select * from drama_photoboard where bno=#{bno}
+		select * from drama_photoboard where pht_bno=#{pht_bno}
 	</select>
 	
 	<update id="modify">
     	update drama_photoboard
-    	set title=#{title}, content=#{content} 
-    	where bno=#{bno}
+    	set pht_title=#{pht_title}, pht_content=#{pht_content} 
+    	where pht_bno=#{pht_bno}
     </update>
     
     <delete id="remove">
 		delete from drama_photoboard
-		where bno=#{bno}
+		where pht_bno=#{pht_bno}
     </delete>
     
 	<update id="cntup">
-		update drama_photoboard set cnt = cnt+1 where bno=#{bno}
+		update drama_photoboard set pht_cnt = pht_cnt+1 where pht_bno=#{pht_bno}
 	</update>
 	
 	<select id="total" resultType="int">
@@ -74,17 +74,17 @@
 		<if test="keyword != null">
 		<choose>
 			<when test="type == 'T'.toString()">
-			where title like concat('%', #{keyword}, '%')
+			where pht_title like concat('%', #{keyword}, '%')
 			</when>
 			<when test="type == 'C'.toString()">
-			where id like concat('%', #{keyword}, '%')
+			where user_id like concat('%', #{keyword}, '%')
 			</when>
 			<when test="type == 'W'.toString()">
-			where content like concat('%', #{keyword}, '%')
+			where pht_content like concat('%', #{keyword}, '%')
 			</when>
 			<otherwise>
-			where title like concat('%', #{keyword}, '%')
-			OR content like concat('%', #{keyword}, '%')
+			where pht_title like concat('%', #{keyword}, '%')
+			OR pht_content like concat('%', #{keyword}, '%')
 			</otherwise>
 		</choose>
 		</if>

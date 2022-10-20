@@ -92,9 +92,9 @@ public class PhotoUploadController {
 			System.out.println(uuid.toString());
 			
 			 
-			pavo.setUploadPath(getFolder());	 
-			pavo.setFileName(multipartFile.getOriginalFilename());
-			pavo.setUuid(uuid.toString());
+			pavo.setPht_uploadPath(getFolder());
+			pavo.setPht_fileName(multipartFile.getOriginalFilename());
+			pavo.setPht_uuid(uuid.toString());
 			
 			File saveFile = new File(uploadPath, uuid.toString()+"_"+multipartFile.getOriginalFilename());
 			
@@ -103,7 +103,7 @@ public class PhotoUploadController {
 				
 				if(checkImageType(saveFile)) {
 					
-					pavo.setImage(true);
+					pavo.setPht_image(true);
 					
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_"+uuid.toString()+"_"+multipartFile.getOriginalFilename()));
 					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail,150,150);

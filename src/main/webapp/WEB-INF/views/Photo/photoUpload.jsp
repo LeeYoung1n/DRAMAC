@@ -14,18 +14,18 @@
 <a href="/">홈링크</a>
 
 <h3>그림을 업로드해봅시다~</h3>
-	<form id="phtUp_form" action="/Photo/photoUpload" method="post">
+	<form id="pht_form" action="/Photo/photoUpload" method="post">
 	
-	제목 : <input type="text" name="phtUp_title"><br>
-	내용 : <input type="text" name="phtUp_content">
+	제목 : <input type="text" name="pht_title"><br>
+	내용 : <input type="text" name="pht_content">
 	
-	<input type="file" name="phtUp_file" multiple><br>
-	<input type="button" id="phtUp_btn" value="등록"><br>
+	<input type="file" name="pht_file" multiple><br>
+	<input type="button" id="pht_btn" value="등록"><br>
 	
 	
 	
 	</form>
-	<div id="phtUp_Result">
+	<div id="pht_Result">
 		<ul>
 			
 		</ul>

@@ -6,14 +6,13 @@
         
 <mapper namespace="com.dramac.mapper.PhotoAttachMapper">
 
-	<!-- 파일경로, 파일명, uuid, image 여부를 attach 테이블에 insert -->
 	<insert id="insert">
-		insert into drama_photo(uuid, uploadPath, fileName, image, bno)
-		values(#{uuid}, #{uploadPath}, #{fileName}, #{image}, #{bno})
+		insert into drama_photo(pht_uuid, pht_uploadPath, pht_fileName, pht_image, pht_bno)
+		values(#{pht_uuid}, #{pht_uploadPath}, #{pht_fileName}, #{pht_image}, #{pht_bno})
 	</insert>
 	
 	<select id="attachlist" resultType="com.dramac.model.PhotoAttachVO">
-		select * from drama_photo where bno=#{bno}
+		select * from drama_photo where pht_bno=#{pht_bno}
 	</select>
 
 </mapper>
