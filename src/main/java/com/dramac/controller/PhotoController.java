@@ -42,7 +42,7 @@ public class PhotoController {
 		@RequestMapping(value="/photo/List", method = RequestMethod.GET)
 		public String list(Model model, CriteriaVO cri) {
 			model.addAttribute("photoList", ps.photoList(cri));
-			int total = ps.total();
+			int total = ps.total(cri);
 			model.addAttribute("paging", new PageVO(cri, total));
 			return "Photo/photoList";
 		}

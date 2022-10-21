@@ -21,7 +21,7 @@ public interface PhotoService {
 	// 글 목록 리스트 설계
 	public ArrayList<PhotoBoardVO> photoList(CriteriaVO cri);
 
-	public int total();
+	public int total(CriteriaVO cri);
 
 
 	public ArrayList<PhotoAttachVO> attachlist(int pht_bno);

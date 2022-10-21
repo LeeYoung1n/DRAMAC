@@ -24,6 +24,27 @@
 		from (
 				select @rownum:=@rownum+1 rownum, drama_photoboard. *
 				from drama_photoboard, (select @rownum:=0) as tmp
+				<if test="keyword != null">
+ 					where pht_title like concat('%',#{keyword},'%')
+ 					
+ 				<choose>
+					<when test="type == 'T'.toString()">
+					where pht_title like concat('%', #{keyword}, '%')
+					</when>
+					<when test="type == 'C'.toString()">
+					where user_id like concat('%', #{keyword}, '%')
+					</when>
+					<when test="type == 'W'.toString()">
+					where pht_content like concat('%', #{keyword}, '%')
+					</when>
+					<otherwise>
+					where pht_title like concat('%', #{keyword}, '%')
+					OR pht_content like concat('%', #{keyword}, '%')
+					</otherwise>
+				</choose>
+				
+				
+				</if>
 				order by pht_bno desc
 			) as photoList
 			<![CDATA[
@@ -53,6 +74,26 @@
 	
 	<select id="total" resultType="int">
 		select count(*) from drama_photoboard
+		<if test="keyword != null">
+		where pht_title like concat('%',#{keyword},'%')
+		
+		<choose>
+			<when test="type == 'T'.toString()">
+				where pht_title like concat('%', #{keyword}, '%')
+			</when>
+			<when test="type == 'C'.toString()">
+				where user_id like concat('%', #{keyword}, '%')
+			</when>
+			<when test="type == 'W'.toString()">
+				where pht_content like concat('%', #{keyword}, '%')
+			</when>
+			<otherwise>
+				where pht_title like concat('%', #{keyword}, '%')
+				OR pht_content like concat('%', #{keyword}, '%')
+			</otherwise>
+			</choose>
+		
+		</if>
 	</select>
    
    

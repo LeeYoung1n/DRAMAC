@@ -56,8 +56,8 @@ public class PhotoServiceImpl implements PhotoService {
 		return pm.photoList(cri);
 	}
 	
-	public int total() {
-		return pm.total();
+	public int total(CriteriaVO cri) {
+		return pm.total(cri);
 	}
 	
 
