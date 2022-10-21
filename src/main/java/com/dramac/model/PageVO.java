@@ -1,6 +1,6 @@
 package com.dramac.model;
 
-public class PhotoPageVO {
+public class PageVO {
 	
 	
 		private int startPage;
@@ -21,7 +21,7 @@ public class PhotoPageVO {
 		private int total;
 		
 		
-		public PhotoPageVO(CriteriaVO cri, int total) {
+		public PageVO(CriteriaVO cri, int total) {
 			this.cri = cri;
 			this.total = total;
 			

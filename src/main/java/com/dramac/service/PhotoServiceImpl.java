@@ -39,7 +39,7 @@ public class PhotoServiceImpl implements PhotoService {
 	
 	@Transactional
 	public PhotoBoardVO photoDetail(PhotoBoardVO pbvo) {
-		//pm.cntup(pbvo);
+		pm.photoCnt(pbvo);
 		return pm.photoDetail(pbvo);
 	}
 	
@@ -51,12 +51,13 @@ public class PhotoServiceImpl implements PhotoService {
 		pm.photoDelete(pbvo);
 	}
 	
+	// 글 목록 리스트 설계
 	public ArrayList<PhotoBoardVO> photoList(CriteriaVO cri){
 		return pm.photoList(cri);
 	}
 	
-	public int total(CriteriaVO cri) {
-		return pm.total(cri);
+	public int total() {
+		return pm.total();
 	}
 	
 

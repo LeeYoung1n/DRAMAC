@@ -18,9 +18,10 @@ public interface PhotoService {
 	
 	public void photoDelete(PhotoBoardVO pbvo);
 	
+	// 글 목록 리스트 설계
 	public ArrayList<PhotoBoardVO> photoList(CriteriaVO cri);
 
-	public int total(CriteriaVO cri);
+	public int total();
 
 
 	public ArrayList<PhotoAttachVO> attachlist(int pht_bno);

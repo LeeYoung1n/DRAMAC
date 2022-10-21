@@ -21,7 +21,14 @@
 	
 	<select id="photoList" resultType="com.dramac.model.PhotoBoardVO">
 		select *
-		from drama_photoboard;
+		from (
+				select @rownum:=@rownum+1 rownum, drama_photoboard. *
+				from drama_photoboard, (select @rownum:=0) as tmp
+				order by pht_bno desc
+			) as photoList
+			<![CDATA[
+				where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+			]]>
 	</select>
 	
 	
@@ -40,29 +47,12 @@
 		where pht_bno=#{pht_bno}
     </delete>
     
-	<update id="cntup">
+	<update id="photoCnt">
 		update drama_photoboard set pht_cnt = pht_cnt+1 where pht_bno=#{pht_bno}
 	</update>
 	
 	<select id="total" resultType="int">
 		select count(*) from drama_photoboard
-		<if test="keyword != null">
-		<choose>
-			<when test="type == 'T'.toString()">
-			where pht_title like concat('%', #{keyword}, '%')
-			</when>
-			<when test="type == 'C'.toString()">
-			where user_id like concat('%', #{keyword}, '%')
-			</when>
-			<when test="type == 'W'.toString()">
-			where pht_content like concat('%', #{keyword}, '%')
-			</when>
-			<otherwise>
-			where pht_title like concat('%', #{keyword}, '%')
-			OR pht_content like concat('%', #{keyword}, '%')
-			</otherwise>
-		</choose>
-		</if>
 	</select>
    
    

@@ -19,7 +19,7 @@
 		<th>제목</th>
 		<td><input type="text" name="pht_title" value="${photoDetail.pht_title}">
 			<input type="hidden" name="pht_bno" value="${photoDetail.pht_bno}">
-			|조회수${photoDetail.pht_cnt }</td>
+			|조회수${photoDetail.pht_cnt}</td>
 	</tr>
 	<tr>
 		<th>내용</th>
