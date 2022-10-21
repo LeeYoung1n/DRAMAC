@@ -11,21 +11,10 @@
 </head>
 <body>
 
-<h1>개인 게시판 목록 리스트</h1>
+<h1>사진 목록</h1>
 
-	<a href="/Photo/photoUpload"><button>글쓰기</button></a>
-	<form id="searchForm" action="/Photo/photoList">
-		<select name="type">
-			<option value="T">제목</option>
-			<option value="C">내용</option>
-			<option value="TC">제목+내용</option>
-			<option value="W">작성자(id)</option>
-		</select>
-		<input type="text" name="keyword">
-		<input type="text" name="pageNum" value="${paging.cri.pageNum}">
-		<input type="text" name="amount" value="${paging.cri.amount}">
-		<input type="button" value="검색">
-	</form>
+	<a href="/photo/Write"><button>글쓰기</button></a>
+	
 
 	<table border="1">
 		<tr>
@@ -37,14 +26,14 @@
 			<th>아이디</th>
 		</tr>
 		<!-- for문 시작 -->
-		<c:forEach items="${list}" var="boardlist">
+		<c:forEach items="${photoList}" var="photoList">
 		<tr>
-			<td>${boardlist.bno}</td>
-			<td><a href="/Board/detail?bno=${boardlist.bno}">${boardlist.title}</a></td>
-			<td>${boardlist.content}</td>
-			<td>${boardlist.regdate}</td>
-			<td>${boardlist.cnt}</td>
-			<td>${boardlist.id}</td>
+			<td>${photoList.pht_bno}</td>
+			<td><a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_title}</a></td>
+			<td>${photoList.pht_content}</td>
+			<td>${photoList.pht_regdate}</td>
+			<td>${photoList.pht_cnt}</td>
+			<td>${photoList.user_id}</td>
 		</tr>
 		</c:forEach>
 	</table>
@@ -52,21 +41,7 @@
 	
 	
 
-	<!-- prev(이전)이 true이면 이전버튼 활성화 -->
-	<c:if test="${paging.prev}">
-		<a href="/Board/list?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.startPage-1}&amount=${paging.cri.amount}">이전</a>
-	</c:if>
-	
-	<!-- begin(1)이 end(10)될 동안 반복(1이 10이 될 동안 반복) -->
-	<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="num">
-	<a href="/Board/list?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${num} &amount=${paging.cri.amount }">${num }</a>
-	</c:forEach>
-	<!-- a태그와 주소를 같이 맞추려면 둘이 같아야함 -->
-	
-	<!-- next(다음)이 true이면 다음버튼 활성화 -->
-	<c:if test="${paging.next}">
-	<a href="/Board/list?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.endPage+1} &amount=${paging.cri.amount }">${num }</a>
-	</c:if>
+
 
 </body>
 </html>

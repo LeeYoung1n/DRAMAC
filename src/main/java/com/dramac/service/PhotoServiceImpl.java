@@ -32,27 +32,27 @@ public class PhotoServiceImpl implements PhotoService {
 	}
 	
 
-	public ArrayList<PhotoBoardVO> list() {
-		return pm.list();
+	public ArrayList<PhotoBoardVO> photoList() {
+		return pm.photoList();
 	}
 	
 	
 	@Transactional
-	public PhotoBoardVO detail(PhotoBoardVO pbvo) {
-		pm.cntup(pbvo);
-		return pm.detail(pbvo);
+	public PhotoBoardVO photoDetail(PhotoBoardVO pbvo) {
+		//pm.cntup(pbvo);
+		return pm.photoDetail(pbvo);
 	}
 	
-	public void modify(PhotoBoardVO pbvo) {
-		pm.modify(pbvo);
+	public void photoModify(PhotoBoardVO pbvo) {
+		pm.photoModify(pbvo);
 	}
 	
-	public void remove(PhotoBoardVO pbvo) {
-		pm.remove(pbvo);
+	public void photoRemove(PhotoBoardVO pbvo) {
+		pm.photoRemove(pbvo);
 	}
 	
-	public ArrayList<PhotoBoardVO> list(CriteriaVO cri){
-		return pm.list(cri);
+	public ArrayList<PhotoBoardVO> photoList(CriteriaVO cri){
+		return pm.photoList(cri);
 	}
 	
 	public int total(CriteriaVO cri) {

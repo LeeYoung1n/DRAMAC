@@ -13,7 +13,7 @@
 
 <a href="/">홈링크</a>
 
-<h3>그림을 업로드해봅시다~</h3>
+<h3>(관리자 전용)사진을 업로드해봅시다~</h3>
 	<form id="pht_form" action="/photo/Write" method="post">
 	
 	제목 : <input type="text" name="pht_title"><br>

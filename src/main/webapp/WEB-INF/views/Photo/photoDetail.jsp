@@ -12,23 +12,25 @@
 </head>
 <body>
 <form method="post">
+
+
 <table border="1">
 	<tr>
 		<th>제목</th>
-		<td><input type="text" name="title" value="${detail.title}">
-			<input type="hidden" name="bno" value="${detail.bno}">
-			|조회수${detail.cnt }</td>
+		<td><input type="text" name="pht_title" value="${photoDetail.pht_title}">
+			<input type="hidden" name="pht_bno" value="${photoDetail.pht_bno}">
+			|조회수${photoDetail.pht_cnt }</td>
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td><textarea name="content">${detail.content}</textarea></td>
+		<td><textarea name="pht_content">${photoDetail.pht_content}</textarea></td>
 	</tr>
 	<tr>
-		<th>작성일자</th><td>${detail.regdate}</td>
+		<th>작성일자</th><td>${photoDetail.pht_regdate}</td>
 	</tr>
 	<tr><td colspan="2">
-		<input type="submit" value="수정" formaction="/Board/modify">
-		<input type="submit" value="삭제" formaction="/Board/remove">
+		<input type="submit" value="수정" formaction="/photo/Modify">
+		<input type="submit" value="삭제" formaction="/photo/Remove">
 		</td>
 	</tr>
 

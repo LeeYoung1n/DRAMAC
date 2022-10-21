@@ -19,48 +19,23 @@
 	</insert>
 	
 	
-	<select id="list" resultType="com.dramac.model.PhotoBoardVO">
+	<select id="photoList" resultType="com.dramac.model.PhotoBoardVO">
 		select *
-		from (
-				select @rownum:=@rownum+1 rownum, drama_photoboard. *
-				from drama_photoboard, (select @rownum:=0) as tmp
-				<if test = "keyword != null">
-				<choose>
-					<when test="type == 'T'.toString()">
-					where pht_title like concat('%', #{keyword}, '%')
-					</when>
-					<when test="type == 'C'.toString()">
-					where user_id like concat('%', #{keyword}, '%')
-					</when>
-					<when test="type == 'W'.toString()">
-					where pht_content like concat('%', #{keyword}, '%')
-					</when>
-					<otherwise>
-					where pht_title like concat('%', #{keyword}, '%')
-					OR pht_content like concat('%', #{keyword}, '%')
-					</otherwise>
-				</choose>
-				
-				</if>
-				order by pht_bno desc
-			) as photoList
-			<![CDATA[
-				where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
-			]]>
+		from drama_photoboard;
 	</select>
 	
 	
-	<select id = "detail" resultType="com.dramac.model.PhotoBoardVO">
-		select * from drama_photoboard where pht_bno=#{pht_bno}
+	<select id = "photoDetail" resultType="com.dramac.model.PhotoBoardVO">
+		select * from drama_photoboard where pht_bno=#{pht_bno};
 	</select>
 	
-	<update id="modify">
+	<update id="photoModify">
     	update drama_photoboard
     	set pht_title=#{pht_title}, pht_content=#{pht_content} 
     	where pht_bno=#{pht_bno}
     </update>
     
-    <delete id="remove">
+    <delete id="photoRemove">
 		delete from drama_photoboard
 		where pht_bno=#{pht_bno}
     </delete>

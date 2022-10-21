@@ -10,15 +10,15 @@ public interface PhotoService {
 	
 	public void write(PhotoBoardVO pbvo); 
 	
-	public ArrayList<PhotoBoardVO> list();
+	public ArrayList<PhotoBoardVO> photoList();
 	
-	public PhotoBoardVO detail(PhotoBoardVO pbvo);
+	public PhotoBoardVO photoDetail(PhotoBoardVO pbvo);
 	
-	public void modify(PhotoBoardVO pbvo);
+	public void photoModify(PhotoBoardVO pbvo);
 	
-	public void remove(PhotoBoardVO pbvo);
+	public void photoRemove(PhotoBoardVO pbvo);
 	
-	public ArrayList<PhotoBoardVO> list(CriteriaVO cri);
+	public ArrayList<PhotoBoardVO> photoList(CriteriaVO cri);
 
 	public int total(CriteriaVO cri);
 

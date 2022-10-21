@@ -39,12 +39,9 @@ public class PhotoController {
 		}
 		
 		
-		
 		@RequestMapping(value="/photo/List", method = RequestMethod.GET)
-		public String list(Model model, CriteriaVO cri) {
-			model.addAttribute("list", ps.list(cri));
-			int total = ps.total(cri);
-			model.addAttribute("paging", new PhotoPageVO(cri, total));
+		public String list(Model model) {
+			model.addAttribute("photoList", ps.photoList());
 			return "Photo/photoList";
 		}
 		
@@ -52,22 +49,22 @@ public class PhotoController {
 		@RequestMapping(value = "/photo/Detail", method = RequestMethod.GET)
 	    public String detail(PhotoBoardVO pbvo, Model model) {
 			System.out.println(pbvo);
-			model.addAttribute("detail", ps.detail(pbvo));
+			model.addAttribute("photoDetail", ps.photoDetail(pbvo));
+			//	ps.photoDetail(pbvo);
 	    	return "Photo/photoDetail";
 	    }
 
 		
 		@RequestMapping(value = "/photo/Modify", method = RequestMethod.POST)
-	    public String modify(PhotoBoardVO pbvo, RedirectAttributes rttr) {
-	    	ps.modify(pbvo);
-	    	rttr.addAttribute("bno", pbvo.getPht_bno());
-	    	return "redirect:/Photo/photoList";
+		public void photoModify(PhotoBoardVO pbvo) {
+	    	ps.photoModify(pbvo);
 	    }
 		
+		
 		@RequestMapping(value = "/photo/Remove", method = RequestMethod.POST)
-		public String remove (PhotoBoardVO pbvo) {
-			ps.remove(pbvo);
-			return "redirect:/Photo/photoList";
+		public String photoRemove (PhotoBoardVO pbvo) {
+			ps.photoRemove(pbvo);
+			return "redirect:/photo/List";
 		}
 		
 		
