@@ -56,14 +56,16 @@ public class PhotoController {
 
 		
 		@RequestMapping(value = "/photo/Modify", method = RequestMethod.POST)
-		public void photoModify(PhotoBoardVO pbvo) {
+		public String photoModify(PhotoBoardVO pbvo, RedirectAttributes rttr) {
 	    	ps.photoModify(pbvo);
+	    	rttr.addAttribute("pht_bno", pbvo.getPht_bno());
+	    	return "redirect:/photo/Detail";
 	    }
 		
 		
-		@RequestMapping(value = "/photo/Remove", method = RequestMethod.POST)
-		public String photoRemove (PhotoBoardVO pbvo) {
-			ps.photoRemove(pbvo);
+		@RequestMapping(value = "/photo/Delete", method = RequestMethod.POST)
+		public String photoDelete (PhotoBoardVO pbvo) {
+			ps.photoDelete(pbvo);
 			return "redirect:/photo/List";
 		}
 		

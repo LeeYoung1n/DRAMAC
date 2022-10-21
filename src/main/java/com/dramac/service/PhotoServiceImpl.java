@@ -47,8 +47,8 @@ public class PhotoServiceImpl implements PhotoService {
 		pm.photoModify(pbvo);
 	}
 	
-	public void photoRemove(PhotoBoardVO pbvo) {
-		pm.photoRemove(pbvo);
+	public void photoDelete(PhotoBoardVO pbvo) {
+		pm.photoDelete(pbvo);
 	}
 	
 	public ArrayList<PhotoBoardVO> photoList(CriteriaVO cri){

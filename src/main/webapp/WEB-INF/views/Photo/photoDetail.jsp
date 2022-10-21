@@ -30,7 +30,7 @@
 	</tr>
 	<tr><td colspan="2">
 		<input type="submit" value="수정" formaction="/photo/Modify">
-		<input type="submit" value="삭제" formaction="/photo/Remove">
+		<input type="submit" value="삭제" formaction="/photo/Delete">
 		</td>
 	</tr>
 

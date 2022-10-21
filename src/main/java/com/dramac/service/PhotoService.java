@@ -16,7 +16,7 @@ public interface PhotoService {
 	
 	public void photoModify(PhotoBoardVO pbvo);
 	
-	public void photoRemove(PhotoBoardVO pbvo);
+	public void photoDelete(PhotoBoardVO pbvo);
 	
 	public ArrayList<PhotoBoardVO> photoList(CriteriaVO cri);
 

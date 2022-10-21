@@ -35,7 +35,7 @@
     	where pht_bno=#{pht_bno}
     </update>
     
-    <delete id="photoRemove">
+    <delete id="photoDelete">
 		delete from drama_photoboard
 		where pht_bno=#{pht_bno}
     </delete>
