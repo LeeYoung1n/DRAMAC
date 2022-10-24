@@ -61,7 +61,7 @@ public class PhotoController {
 		public String photoModify(PhotoBoardVO pbvo, RedirectAttributes rttr) {
 	    	ps.photoModify(pbvo);
 	    	rttr.addAttribute("pht_bno", pbvo.getPht_bno());
-	    	return "redirect:/photo/Detail";
+	    	return "redirect:/photo/List";
 	    }
 		
 		
