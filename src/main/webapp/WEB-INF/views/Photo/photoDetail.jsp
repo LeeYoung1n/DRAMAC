@@ -43,7 +43,7 @@
 		
 		</ul>
 	</div>
-	<!-- 댓글 작성 버튼 - html에 직접적으로 드러남 -->
+	<!-- 댓글 작성 버튼 - html에 직접적으로 드러남 
 	<div><label>댓글</label></div>
 	<div>
 	<textarea rows="5" cols="50" id="reply"></textarea>
@@ -54,6 +54,6 @@
 	<div id="chat">
 		<ul id="replyUL">
 		</ul>
-	</div>
+	</div>-->
 </body>
 </html>
