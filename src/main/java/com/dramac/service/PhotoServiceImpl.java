@@ -25,7 +25,7 @@ public class PhotoServiceImpl implements PhotoService {
 	public void write(PhotoBoardVO pbvo) {
 		System.out.println("service="+pbvo);
 		pm.write(pbvo);
-		pbvo.getPht_attach().forEach(pht_attach->{
+		pbvo.getPht_attach() .forEach(pht_attach->{
 			pht_attach.setPht_bno(pbvo.getPht_bno());
 			pam.insert(pht_attach);
 		});
@@ -61,7 +61,7 @@ public class PhotoServiceImpl implements PhotoService {
 	}
 	
 
-	public ArrayList<PhotoAttachVO> attachlist(int pht_bno){
-		return pam.attachlist(pht_bno);
+	public ArrayList<PhotoAttachVO> photo_attachlist(int pht_bno){
+		return pam.photo_attachlist(pht_bno);
 	}
 }

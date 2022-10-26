@@ -11,7 +11,7 @@
 		values(#{pht_uuid}, #{pht_uploadPath}, #{pht_fileName}, #{pht_image}, #{pht_bno})
 	</insert>
 	
-	<select id="attachlist" resultType="com.dramac.model.PhotoAttachVO">
+	<select id="photo_attachlist" resultType="com.dramac.model.PhotoAttachVO">
 		select * from drama_photo where pht_bno=#{pht_bno}
 	</select>
 

@@ -35,7 +35,7 @@ public class PhotoController {
 		public String writePost(PhotoBoardVO pbvo) {
 			System.out.println("service??"+pbvo);
 			ps.write(pbvo);
-			return "redirect:/Photo/photoList";
+			return "redirect:/photo/List";
 		}
 		
 		
@@ -72,9 +72,9 @@ public class PhotoController {
 		}
 		
 		
-		@RequestMapping(value = "/attachlist", method = RequestMethod.GET)
-		public ResponseEntity<ArrayList<PhotoAttachVO>> uploadAjaxPost(int bno){
-			return new ResponseEntity<>(ps.attachlist(bno),HttpStatus.OK);
+		@RequestMapping(value = "/photo_attachlist", method = RequestMethod.GET)
+		public ResponseEntity<ArrayList<PhotoAttachVO>> uploadAjaxPost(int pht_bno){
+			return new ResponseEntity<>(ps.photo_attachlist(pht_bno),HttpStatus.OK);
 		}
 
 }

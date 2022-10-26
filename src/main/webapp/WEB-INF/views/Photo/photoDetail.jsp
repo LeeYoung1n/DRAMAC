@@ -7,8 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/resources/js/reply.js"></script>
-<script type="text/javascript" src="/resources/js/attach.js"></script>
 </head>
 <body>
 <form method="post">
@@ -56,4 +54,6 @@
 		</ul>
 	</div>-->
 </body>
+
+<script type="text/javascript" src="/resources/JS/Photo_JS/photoAttach.js"></script>
 </html>

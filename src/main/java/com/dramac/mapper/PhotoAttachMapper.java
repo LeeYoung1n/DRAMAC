@@ -9,6 +9,6 @@ public interface PhotoAttachMapper {
 	
 		public void insert(PhotoAttachVO pavo);
 		
-		public ArrayList<PhotoAttachVO> attachlist(int pht_bno);
+		public ArrayList<PhotoAttachVO> photo_attachlist(int pht_bno);
 
 }
