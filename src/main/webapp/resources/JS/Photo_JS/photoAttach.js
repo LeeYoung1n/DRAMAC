@@ -7,16 +7,17 @@ $(document).ready(function(){
 	// input과 name 사이를 띄우면 안됨!! 
 	var pht_bno=$("input[name='pht_bno']").val();
 
-	//									콜백
+	//												콜백
 	$.getJSON("/photo_attachlist",{pht_bno:pht_bno},function(photo_attachlist){
 		console.log(photo_attachlist);
 		
 		var str="";
-		
 		$(photo_attachlist).each(function(i, obj){
+			console.log(obj);
 			// 만약 image 결과가 true면
-			if(obj.image){pht_attach
+			if(obj.pht_image){
 				var pht_filePath=encodeURIComponent(obj.pht_uploadPath+"/s_"+obj.pht_uuid+"_"+obj.pht_fileName)
+				console.log(pht_filePath)
 				str+="<li><img src='/photoDisplay?pht_fileName="+pht_filePath+"'>"+obj.pht_fileName+"</a></li>"
 			}else{// 그렇지 않으면
 				var filePath=encodeURIComponent(obj.pht_uploadPath+"/"+obj.pht_uuid+"_"+obj.pht_fileName)

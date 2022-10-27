@@ -25,31 +25,7 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Controller
 public class PhotoUploadController {
 
-//	@RequestMapping(value = "/photouploadForm", method = RequestMethod.GET)
-//	public String uploadForm() {
-//		return "Photo/photouploadForm";
-//	}
-//	
-//	@RequestMapping(value = "/photouploadFormAction", method = RequestMethod.POST)
-//	public void uploadFormPost(MultipartFile[] uploadFile) {
-//		
-//				String uploadFolder = "E:\\drama_upload";
-//
-//				for (MultipartFile multipartFile : uploadFile) {
-//					System.out.println(multipartFile.getOriginalfileName());
-//					System.out.println(multipartFile.getSize());
-//
-//					File saveFile = new File(uploadFolder, multipartFile.getOriginalfileName());
-//
-//					try {
-//						multipartFile.transferTo(saveFile);
-//					} catch (Exception e) {
-//						System.out.println(e.getMessage());
-//					}
-//
-//				}
-//	}
-	
+
 	private String getFolder() {
 		
 		Date date = new Date();
@@ -64,7 +40,7 @@ public class PhotoUploadController {
 	
 	
 	@RequestMapping(value = "/photoUpload", method = RequestMethod.GET)
-	public void photoUpload() {
+	public void photoUpload(MultipartFile[] uploadFile) {
 		
 	}
 	
@@ -90,6 +66,7 @@ public class PhotoUploadController {
 			
 			UUID uuid = UUID.randomUUID();
 			System.out.println(uuid.toString());
+			System.out.println("연결확인용");
 			
 			 
 			pavo.setPht_uploadPath(getFolder());
@@ -137,10 +114,10 @@ public class PhotoUploadController {
 	}
 	
 	@RequestMapping(value = "/photoDisplay", method = RequestMethod.GET)
-	public ResponseEntity<byte[]> getFile(String fileName) {
-		System.out.println(fileName);
+	public ResponseEntity<byte[]> getFile(String pht_fileName) {
+		System.out.println(pht_fileName);
 
-		File file = new File("E:\\drama_upload\\" + fileName);
+		File file = new File("E:\\drama_upload\\" + pht_fileName);
 
 		ResponseEntity<byte[]> result = null;
 
