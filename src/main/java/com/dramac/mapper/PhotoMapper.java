@@ -20,7 +20,7 @@ public interface PhotoMapper {
 		// 글 목록 리스트 설계
 		public ArrayList<PhotoBoardVO> photoList(CriteriaVO cri);
 		
-		public int total();
+		//public int total();
 		
 		public void photoCnt(PhotoBoardVO pbvo);
 		

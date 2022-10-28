@@ -16,6 +16,8 @@ public class PhotoBoardVO {
 	private int pht_cnt;
 	//id
 	private String user_id;
+	//rownum
+	private int pht_rownum;
 	
 	
 	private ArrayList<PhotoAttachVO> pht_attach;
@@ -89,14 +91,29 @@ public class PhotoBoardVO {
 	public void setPht_attach(ArrayList<PhotoAttachVO> pht_attach) {
 		this.pht_attach = pht_attach;
 	}
+	
+	
+	
+
+
+	public int getPht_rownum() {
+		return pht_rownum;
+	}
+
+
+	public void setPht_rownum(int pht_rownum) {
+		this.pht_rownum = pht_rownum;
+	}
 
 
 	@Override
 	public String toString() {
 		return "PhotoBoardVO [pht_bno=" + pht_bno + ", pht_title=" + pht_title + ", pht_content=" + pht_content
-				+ ", pht_regdate=" + pht_regdate + ", pht_cnt=" + pht_cnt + ", user_id=" + user_id + ", pht_attach="
-				+ pht_attach + "]";
+				+ ", pht_regdate=" + pht_regdate + ", pht_cnt=" + pht_cnt + ", user_id=" + user_id + ", pht_rownum="
+				+ pht_rownum + ", pht_attach=" + pht_attach + "]";
 	}
+
+
 
 	
 	

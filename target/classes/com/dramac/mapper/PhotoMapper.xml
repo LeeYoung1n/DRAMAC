@@ -29,17 +29,17 @@
  					
  				<choose>
 					<when test="type == 'T'.toString()">
-					where pht_title like concat('%', #{keyword}, '%')
+						OR pht_title like concat('%',#{keyword},'%')
 					</when>
 					<when test="type == 'C'.toString()">
-					where user_id like concat('%', #{keyword}, '%')
+						OR pht_content like concat('%',#{keyword},'%')
 					</when>
 					<when test="type == 'W'.toString()">
-					where pht_content like concat('%', #{keyword}, '%')
+						OR user_id like concat('%',#{keyword},'%')
 					</when>
 					<otherwise>
-					where pht_title like concat('%', #{keyword}, '%')
-					OR pht_content like concat('%', #{keyword}, '%')
+						OR pht_title like concat('%',#{keyword},'%')
+						OR pht_content like concat('%',#{keyword},'%')
 					</otherwise>
 				</choose>
 				
@@ -78,16 +78,16 @@
 		
 		<choose>
 			<when test="type == 'T'.toString()">
-				where pht_title like concat('%', #{keyword}, '%')
+				OR pht_title like concat('%', #{keyword}, '%')
 			</when>
 			<when test="type == 'C'.toString()">
-				where user_id like concat('%', #{keyword}, '%')
+				OR pht_content like concat('%', #{keyword}, '%')
 			</when>
 			<when test="type == 'W'.toString()">
-				where pht_content like concat('%', #{keyword}, '%')
+				OR user_id like concat('%', #{keyword}, '%')
 			</when>
 			<otherwise>
-				where pht_title like concat('%', #{keyword}, '%')
+				OR pht_title like concat('%', #{keyword}, '%')
 				OR pht_content like concat('%', #{keyword}, '%')
 			</otherwise>
 			</choose>

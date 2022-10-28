@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/resources/JS/Photo_JS/photoList.js"></script>
 </head>
 <body>
 
@@ -19,18 +18,19 @@
 			<option value="T">제목</option>
 			<option value="C">내용</option>
 			<option value="TC">제목+내용</option>
-			<option value="W">작성자(id)</option>
+			<option value="W">작성자(user_id)</option>
 		</select>
 		<input type="text" name="keyword">
-		<input type="text" name="pageNum" value="${paging.cri.pageNum}">
-		<input type="text" name="amount" value="${paging.cri.amount}"> 
+		<input type="hidden" name="pageNum" value="${paging.cri.pageNum}">
+		<input type="hidden" name="amount" value="${paging.cri.amount}"> 
 		<input type="button" value="검색">
 	</form>
 	
 
 	<table border="1">
 		<tr>
-			<th>번호</th>
+			<!-- <th>번호</th> -->
+			<!-- <th>rownum</th> -->
 			<th>제목</th>
 			<th>내용</th>
 			<th>날짜</th>
@@ -40,9 +40,11 @@
 		<!-- for문 시작 -->
 		<c:forEach items="${photoList}" var="photoList">
 		<tr>
-			<td>${photoList.pht_bno}</td>
+			<!-- <td>${photoList.pht_bno}</td>-->
+			<!-- <td>${photoList.pht_rownum}</td>-->
 			<td><a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_title}</a></td>
-			<td>${photoList.pht_content}</td>
+			<td><a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_content}</a></td>
+			
 			<td>${photoList.pht_regdate}</td>
 			<td>${photoList.pht_cnt}</td>
 			<td>${photoList.user_id}</td>
@@ -64,9 +66,10 @@
 	
 	<!-- next(다음)이 true이면 다음버튼 활성화 -->
 	<c:if test="${paging.next}">
-		<a href="/photo/List?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.endPage+1}&amount=${paging.cri.amount}">${num}</a>
+		<a href="/photo/List?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.endPage+1}&amount=${paging.cri.amount}">다음</a>
 	</c:if>
 
 
 </body>
+<script type="text/javascript" src="/resources/JS/Photo_JS/photoList.js"></script>
 </html>
