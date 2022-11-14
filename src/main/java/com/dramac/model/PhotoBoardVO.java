@@ -18,6 +18,8 @@ public class PhotoBoardVO {
 	private String user_id;
 	//rownum
 	private int pht_rownum;
+	//이미지 파일명
+	private String pht_fileName;
 	
 	
 	private ArrayList<PhotoAttachVO> pht_attach;
@@ -106,13 +108,25 @@ public class PhotoBoardVO {
 	}
 
 
+	public String getPht_fileName() {
+		return pht_fileName;
+	}
+
+
+	public void setPht_fileName(String pht_fileName) {
+		this.pht_fileName = pht_fileName;
+	}
+
+
 	@Override
 	public String toString() {
 		return "PhotoBoardVO [pht_bno=" + pht_bno + ", pht_title=" + pht_title + ", pht_content=" + pht_content
 				+ ", pht_regdate=" + pht_regdate + ", pht_cnt=" + pht_cnt + ", user_id=" + user_id + ", pht_rownum="
-				+ pht_rownum + ", pht_attach=" + pht_attach + "]";
+				+ pht_rownum + ", pht_fileName=" + pht_fileName + ", pht_attach=" + pht_attach + "]";
 	}
 
+	
+	
 
 
 	

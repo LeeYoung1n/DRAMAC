@@ -36,6 +36,7 @@
 			<th>날짜</th>
 			<th>조회수</th>
 			<th>아이디</th>
+			<th>사진</th>
 		</tr>
 		<!-- for문 시작 -->
 		<c:forEach items="${photoList}" var="photoList">
@@ -48,9 +49,12 @@
 			<td>${photoList.pht_regdate}</td>
 			<td>${photoList.pht_cnt}</td>
 			<td>${photoList.user_id}</td>
+			<td> <img src="/photoDisplay?pht_fileName=${photoList.pht_fileName}" width="100px" height="100px"></td>
 		</tr>
 		</c:forEach>
 	</table>
+	
+	
 	
 	
 

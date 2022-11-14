@@ -65,7 +65,7 @@ $(document).ready(function(){
 						console.log(filePath)
 						str+="<li><img src='/photoDisplay?pht_fileName="+filePath+"'>"+obj.pht_fileName+"</li>"
 					}else{
-						var filePath = encodeURIComponent(obj.pht_uploadPath+"/s_"+obj.pht_uuid+"_"+obj.pht_fileName)
+						var filePath = encodeURIComponent(obj.pht_uploadPath+obj.pht_uuid+"_"+obj.pht_fileName)
 						str+="<li><a href='/download?pht_fileName="+filePath+"'>"+obj.pht_fileName+"</a></li>"
 					}
 				})

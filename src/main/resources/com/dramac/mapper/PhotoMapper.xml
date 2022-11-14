@@ -20,10 +20,13 @@
 	
 	
 	<select id="photoList" resultType="com.dramac.model.PhotoBoardVO">
-		select *
-		from (
-				select @rownum:=@rownum+1 pht_rownum, drama_photoboard. *
-				from drama_photoboard, (select @rownum:=0) as tmp
+	select*
+	from(
+		select @rownum :=@rownum+1 rownum, drama_photoboard.*
+		from 
+			(select drama_photoboard.pht_bno,pht_title,pht_content,pht_writer,pht_regdate,pht_cnt,user_id,Concat(Replace(pht_uploadpath,'\\','/'),'/',pht_uuid,'-',pht_fileName)pht_fileName
+			from drama_photo inner join drama_photoboard
+				on drama_photo.pht_bno = drama_photoboard.pht_bno
 				<if test="keyword != null">
  					where pht_title like concat('%',#{keyword},'%')
  					
@@ -44,10 +47,11 @@
 				</choose>
 				
 				</if>
-				order by pht_bno desc
-			) as drama_photoList
+				order by drama_photoboard.pht_bno desc
+			)as drama_photoboard, (select @rownum:=0) as tmp) as
+			photoList
 			<![CDATA[
-				where pht_rownum > (#{pageNum}-1)*#{amount} and pht_rownum <= #{pageNum}*#{amount}
+				where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
 			]]>
 	</select>
 	

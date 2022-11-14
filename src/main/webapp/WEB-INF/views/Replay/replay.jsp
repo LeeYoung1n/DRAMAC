@@ -10,3 +10,17 @@
 
 </body>
 </html>
+
+<!-- 상품리스트(페이징 및 검색) -->
+	<select id="list" resultType="com.food.model.ShopVO">
+	select*
+	from(
+	select @rownum :=@rownum+1 rownum,s.*
+	from (select
+	s.prodnum,NAME,discountprice,today,Concat(Replace(uploadpath,'\\','/'),'/',uuid,'-',filename)filename
+	from tb_shop s inner join sh_appatch a
+	on s.prodnum = a.prodnum
+	
+            order by s.prodnum desc
+            )as s, (select @rownum:=0) as tmp) as
+	shopProductlist

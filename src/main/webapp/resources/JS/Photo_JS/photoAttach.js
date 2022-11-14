@@ -12,16 +12,16 @@ $(document).ready(function(){
 		console.log(photo_attachlist);
 		
 		var str="";
-		$(photo_attachlist).each(function(i, obj){
-			console.log(obj);
+		$(photo_attachlist).each(function(i, attach){
+			console.log(attach);
 			// 만약 image 결과가 true면
-			if(obj.pht_image){
-				var pht_filePath=encodeURIComponent(obj.pht_uploadPath+"/s_"+obj.pht_uuid+"_"+obj.pht_fileName)
-				console.log(pht_filePath)
-				str+="<li><img src='/photoDisplay?pht_fileName="+pht_filePath+"'>"+obj.pht_fileName+"</a></li>"
+			if(attach.pht_image){
+				var filePath=encodeURIComponent(attach.pht_uploadPath+"/s_"+attach.pht_uuid+"_"+attach.pht_fileName)
+				console.log(filePath)
+				str+="<li><img src='/photoDisplay?pht_fileName="+filePath+"'>"+attach.pht_fileName+"</li>"
 			}else{// 그렇지 않으면
-				var filePath=encodeURIComponent(obj.pht_uploadPath+"/"+obj.pht_uuid+"_"+obj.pht_fileName)
-				str+="<li><a href='/download?pht_fileName="+pht_filePath+"'>"+obj.pht_fileName+"</a></li>"
+				var filePath=encodeURIComponent(attach.pht_uploadPath+"/"+attach.pht_uuid+"_"+attach.pht_fileName)
+				str+="<li><a href='/download?pht_fileName="+filePath+"'>"+attach.pht_fileName+"</a></li>"
 			}
 		})
 		$("#uploadResult ul").html(str);
