@@ -48,8 +48,8 @@ public class PhotoUploadController {
 	public ResponseEntity<ArrayList<PhotoAttachVO>> photoUploadPost(MultipartFile[] uploadFile) {
 		
 		ArrayList<PhotoAttachVO> list = new ArrayList<>();
-		
-		String uploadFolder = "E:\\drama_upload";
+		//폴더 경로
+		String uploadFolder = "D:\\01-STUDY\\DRAMAC_Upload";
 		
 		 File uploadPath = new File(uploadFolder, getFolder());
 		 
@@ -83,6 +83,7 @@ public class PhotoUploadController {
 					pavo.setPht_image(true);
 					
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_"+uuid.toString()+"_"+multipartFile.getOriginalFilename()));
+					
 					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail,150,150);
 					
 					thumbnail.close();
@@ -117,7 +118,7 @@ public class PhotoUploadController {
 	public ResponseEntity<byte[]> getFile(String pht_fileName) {
 		System.out.println(pht_fileName);
 
-		File file = new File("E:\\drama_upload\\" + pht_fileName);
+		File file = new File("D:\\01-STUDY\\DRAMAC_Upload\\" + pht_fileName);
 
 		ResponseEntity<byte[]> result = null;
 

@@ -24,16 +24,18 @@ $(document).ready(function(){
 	
 	$("#pht_btn").on("click", function(){
 //		e.preventDefault();
-		alert("연결확인용");
+		alert("글과 사진이 등록되었습니다.");
 	
 		var formData = new FormData();
 		
 		var inputFile = $("input[name='pht_file']");
 		
 		var files = inputFile[0].files;
+
 		console.log(files);
 		
 		for(var i=0; i<files.length; i++){
+			
 			if(!checkExtension(files[i].name, files[i].size)){
 				return false;
 			}
@@ -69,7 +71,7 @@ $(document).ready(function(){
 						str+="<li><a href='/download?pht_fileName="+filePath+"'>"+obj.pht_fileName+"</a></li>"
 					}
 				})
-				$("#pht_Result ul").html(str);
+				$("#uploadResult ul").html(str);
 				$("#pht_form").append(input).submit();
 			}
 		})

@@ -12,6 +12,9 @@
 <form method="post">
 
 
+<a href="/photo/List">목록</a>
+
+
 <table border="1">
 	<tr>
 		<th>제목</th>
