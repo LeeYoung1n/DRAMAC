@@ -51,29 +51,28 @@ public class PhotoUploadController {
 		//폴더 경로
 		String uploadFolder = "D:\\01-STUDY\\DRAMAC_Upload";
 		
-		 File uploadPath = new File(uploadFolder, getFolder());
+		 File pht_uploadPath = new File(uploadFolder, getFolder());
 		 
-		 if(uploadPath.exists()==false) {
-			 uploadPath.mkdirs();
+		 if(pht_uploadPath.exists()==false) {
+			 pht_uploadPath.mkdirs();
 		 }
 		
 		for (MultipartFile multipartFile : uploadFile) {
 			
 			PhotoAttachVO pavo = new PhotoAttachVO();
 			
-			System.out.println(multipartFile.getOriginalFilename());
-			System.out.println(multipartFile.getSize());
+			System.out.println("파일명="+multipartFile.getOriginalFilename());
+			System.out.println("파일사이즈="+multipartFile.getSize());
 			
 			UUID uuid = UUID.randomUUID();
-			System.out.println(uuid.toString());
-			System.out.println("연결확인용");
+			System.out.println("UUID="+uuid.toString());
 			
 			 
 			pavo.setPht_uploadPath(getFolder());
 			pavo.setPht_fileName(multipartFile.getOriginalFilename());
 			pavo.setPht_uuid(uuid.toString());
 			
-			File saveFile = new File(uploadPath, uuid.toString()+"_"+multipartFile.getOriginalFilename());
+			File saveFile = new File(pht_uploadPath, uuid.toString()+"_"+multipartFile.getOriginalFilename());
 			
 			try {
 				multipartFile.transferTo(saveFile);
@@ -82,7 +81,7 @@ public class PhotoUploadController {
 					
 					pavo.setPht_image(true);
 					
-					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_"+uuid.toString()+"_"+multipartFile.getOriginalFilename()));
+					FileOutputStream thumbnail = new FileOutputStream(new File(pht_uploadPath,"s_"+uuid.toString()+"_"+multipartFile.getOriginalFilename()));
 					
 					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail,150,150);
 					

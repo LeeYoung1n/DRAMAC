@@ -49,14 +49,7 @@
 			<td>${photoList.pht_regdate}</td>
 			<td>${photoList.pht_cnt}</td>
 			<td>${photoList.user_id}</td>
-			<td>
-				<c:if test="${photoList.pht_fileName != ''}">
-				 <img src="/photoDisplay?pht_fileName=${photoList.pht_fileName}" width="100px" height="100px">
-				</c:if>
-				<c:if test="${photoList.pht_fileName == ''}">
-				 <img src="../../../resources/IMAGE/ex.jpg" width="100px" height="100px">
-				</c:if>
-			</td>
+			<td><img src="/photoDisplay?pht_fileName=${photoList.pht_fileName}" width="100px" height="100px"></td>
 		</tr>
 		</c:forEach>
 	</table>
