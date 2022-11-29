@@ -24,11 +24,11 @@
 	<!-- Mybatis 관련 설정 SessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath:com/dramac/mapper/*Mapper.xml"></property>
 	</bean>
 	
 	<!-- 사용자가 설정한 폴더명&경로 -->
-	<mybatis-spring:scan base-package="com.dramac.mapper"/>
-	
+	<mybatis-spring:scan base-package="com.dramac.mapper"></mybatis-spring:scan>
 	<context:component-scan base-package="com.dramac.service"></context:component-scan>
 	
 </beans>

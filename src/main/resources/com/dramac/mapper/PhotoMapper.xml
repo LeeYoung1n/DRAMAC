@@ -24,7 +24,7 @@
 	from(
 		select @rownum :=@rownum+1 rownum, drama_photoboard.*
 		from 
-			(select drama_photoboard.pht_bno,pht_title,pht_content,pht_writer,pht_regdate,pht_cnt,user_id,Concat(Replace(pht_uploadpath,'\\','/'),'/',pht_uuid,'-',pht_fileName)pht_fileName
+			(select drama_photoboard.pht_bno,pht_title,pht_content,pht_writer,pht_regdate,pht_cnt,user_id,Concat(Replace(pht_uploadPath,'\\','/'),'/',pht_uuid,'-',pht_fileName)pht_fileName
 			from drama_photo inner join drama_photoboard
 				on drama_photo.pht_bno = drama_photoboard.pht_bno
 				<if test="keyword != null">
@@ -67,12 +67,17 @@
     </update>
     
     <delete id="photoDelete">
-		delete from drama_photoboard
-		where pht_bno=#{pht_bno}
+		DELETE FROM DRAMA_P, DRAMA_PB
+    	USING DRAMA_PHOTO AS DRAMA_P
+   		RIGHT JOIN DRAMA_PHOTOBOARD AS DRAMA_PB
+    	ON DRAMA_P.PHT_BNO = DRAMA_PB.PHT_BNO
+		WHERE DRAMA_PB.PHT_BNO = #{pht_bno}
     </delete>
     
 	<update id="photoCnt">
-		update drama_photoboard set pht_cnt = pht_cnt+1 where pht_bno=#{pht_bno}
+		UPDATE DRAMA_PHOTOBOARD 
+		SET PHT_CNT = PHT_CNT+1 
+		WHERE PHT_BNO=#{pht_bno}
 	</update>
 	
 	<select id="total" resultType="int">

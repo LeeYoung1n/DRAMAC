@@ -57,10 +57,10 @@ $(document).ready(function(){
 					
 				$(result).each(function(i,obj){
 					
-					//input+="<input type='text' name='pht_attach[" + i + "].pht_fileName' value='"+obj.pht_fileName+"'><br>";
-					//input+="<input type='text' name='pht_attach[" + i + "].pht_uuid' value='"+obj.pht_uuid+"'><br>";
-					//input+="<input type='text' name='pht_attach[" + i + "].pht_uploadPath' value='"+obj.pht_uploadPath+"'><br>";
-					//input+="<input type='text' name='pht_attach[" + i + "].pht_image' value='"+obj.pht_image+"'><br>";
+					input+="<input type='text' name='pht_attach[" + i + "].pht_fileName' value='"+obj.pht_fileName+"'><br>";
+					input+="<input type='text' name='pht_attach[" + i + "].pht_uuid' value='"+obj.pht_uuid+"'><br>";
+					input+="<input type='text' name='pht_attach[" + i + "].pht_uploadPath' value='"+obj.pht_uploadPath+"'><br>";
+					input+="<input type='text' name='pht_attach[" + i + "].pht_image' value='"+obj.pht_image+"'><br>";
 					
 					if(obj.image){
 						var filePath = encodeURIComponent(obj.pht_uploadPath+"/s_"+obj.pht_uuid+"_"+obj.pht_fileName)

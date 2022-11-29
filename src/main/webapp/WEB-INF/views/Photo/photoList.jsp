@@ -7,6 +7,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function () {
+		fn_encodeImgUrl();
+	});
+
+	function fn_encodeImgUrl(){
+		$(".imgUrl").each(function (i, e) {
+			//var pht_fileName = encodeURIComponent($(this).data("filenm"));
+			//$(this).attr("src", "/photoDisplay?pht_fileName="+pht_fileName);
+			
+			var filePath=encodeURIComponent(pht_uploadPath+"/s_"+pht_uuid+"_"+pht_fileName)
+			$(this).attr("src", "/photoDisplay?pht_fileName="+filePath+pht_fileName);
+			
+		});
+	}
+</script>
+
+
 </head>
 <body>
 
@@ -49,7 +67,10 @@
 			<td>${photoList.pht_regdate}</td>
 			<td>${photoList.pht_cnt}</td>
 			<td>${photoList.user_id}</td>
-			<td><img src="/photoDisplay?pht_fileName=${photoList.pht_fileName}" width="100px" height="100px"></td>
+			<td>
+				<input type="hidden" value="${photoList.pht_fileName}">
+				<img class="imgUrl" src="/photoDisplay?pht_fileName=${photoList.pht_fileName }" data-filenm="${photoList.pht_fileName }" width="100px" height="100px">
+			</td>
 		</tr>
 		</c:forEach>
 	</table>
