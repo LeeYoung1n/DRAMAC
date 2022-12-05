@@ -9,48 +9,35 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<form method="post">
+<form action="/photo/Modify" method="post">
 
 
 <a href="/photo/List">목록</a>
 
 
-<!--<table border="1">
+<table border="1">
 	<tr>
 		<th>제목</th>
-		<td><input type="text" name="pht_title" value="${photoDetail.pht_title}">
-			<input type="hidden" name="pht_bno" value="${photoDetail.pht_bno}">
-			<input type="hidden" name="user_id" value="${photoDetail.user_id}">
-			|조회수${photoDetail.pht_cnt}</td>
+		<td>
+			<input type="text" name="pht_title" value="${photoModify.pht_title}">
+			<input type="text" name="pht_bno" value="${photoModify.pht_bno}">
+			<input type="text" name="user_id" value="${photoDetail.user_id}">
+		</td>
 	</tr>
 	<tr>
 		<th>작성일자</th><td>${photoDetail.pht_regdate}</td>
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td><textarea name="pht_content">${photoDetail.pht_content}</textarea></td>
+		<td><textarea name="pht_content">${photoModify.pht_content}</textarea></td>
 	</tr>
 	<tr><td colspan="2">
-		<input type="submit" value="수정" formaction="/photo/Modify">
-		<input type="submit" value="삭제" formaction="/photo/Delete">
+		<input type="submit" value="수정" >
+		<input type="button" value="취소" onclick="location.href='/photo/Detail?pht_bno=${photoModify.pht_bno}'">
 		</td>
 	</tr>
 
-</table>-->
-
-
-<div>${photoDetail.pht_title}</div>
-<div>${photoDetail.pht_bno}</div>
-<div>${photoDetail.pht_cnt}</div>
-<div>${photoDetail.pht_regdate}</div>
-<div>${photoDetail.pht_content}</div>
-<div>${photoDetail.user_id}</div>
-
-
-<input type="button" value="수정" class="" onclick="location.href='/photo/Modify?pht_bno=${photoDetail.pht_bno}'">
-	<input type="submit" value="삭제" class="" formaction="/photo/Delete">
-	<input type="hidden" value="${photoDetail.pht_bno}" name="pht_bno">
-
+</table>
 
 </form>
 

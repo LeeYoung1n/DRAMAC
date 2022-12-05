@@ -7,21 +7,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    
 <script>
-	$(document).ready(function () {
-		fn_encodeImgUrl();
-	});
+$(document).ready(function(){
+	
+	var pht_bno=$("input[name='pht_bno']").val();
 
-	function fn_encodeImgUrl(){
-		$(".imgUrl").each(function (i, e) {
-			//var pht_fileName = encodeURIComponent($(this).data("filenm"));
-			//$(this).attr("src", "/photoDisplay?pht_fileName="+pht_fileName);
-			
-			var filePath=encodeURIComponent(pht_uploadPath+"/s_"+pht_uuid+"_"+pht_fileName)
-			$(this).attr("src", "/photoDisplay?pht_fileName="+filePath+pht_fileName);
-			
-		});
-	}
+	console.log(pht_bno)
+	
+	$.getJSON("/photo_attachlist",{pht_bno:pht_bno},function(photo_attachlist){
+		console.log(photo_attachlist);
+		
+		var str="";
+		$(photo_attachlist).each(function(i, attach){
+			console.log(attach);
+
+				var filePath=encodeURIComponent(attach.pht_uploadPath+"/s_"+attach.pht_uuid+"_"+attach.pht_fileName)
+				console.log(filePath)
+				str+="<img src='/photoDisplay?pht_fileName="+filePath+"'>"
+			})
+		
+			$(".imgUrl td").html(str);
+		})
+		
+	}) 
+
 </script>
 
 
@@ -47,10 +58,9 @@
 
 	<table border="1">
 		<tr>
-			<!-- <th>번호</th> -->
+			<th>번호</th>
 			<!-- <th>rownum</th> -->
 			<th>제목</th>
-			<th>내용</th>
 			<th>날짜</th>
 			<th>조회수</th>
 			<th>아이디</th>
@@ -59,21 +69,25 @@
 		<!-- for문 시작 -->
 		<c:forEach items="${photoList}" var="photoList">
 		<tr>
-			<!-- <td>${photoList.pht_bno}</td>-->
+			<td><input type="text" readonly name="pht_bno" value="${photoList.pht_bno}"></td>
 			<!-- <td>${photoList.pht_rownum}</td>-->
 			<td><a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_title}</a></td>
-			<td><a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_content}</a></td>
-			
 			<td>${photoList.pht_regdate}</td>
 			<td>${photoList.pht_cnt}</td>
 			<td>${photoList.user_id}</td>
-			<td>
-				<input type="hidden" value="${photoList.pht_fileName}">
-				<img class="imgUrl" src="/photoDisplay?pht_fileName=${photoList.pht_fileName }" data-filenm="${photoList.pht_fileName }" width="100px" height="100px">
+			<td class="imgUrl">
+				<!-- <input type="hidden" value="${photoList.pht_fileName}"> -->
+				<!-- <img class="imgUrl" src="/photoDisplay?pht_fileName=${photoList.pht_fileName }" width="100px" height="100px"> -->
+				<!--  <img class="imgUrl" width="100px" height="100px">-->
 			</td>
 		</tr>
 		</c:forEach>
 	</table>
+	<div id="pht_limage">
+		<ul>
+		
+		</ul>
+	</div>
 	
 	
 	

@@ -14,8 +14,8 @@
 			from drama_photoboard;
 		</selectKey>	
 	
-		insert into drama_photoboard(pht_bno, pht_title, pht_content)
-		values (#{pht_bno}, #{pht_title}, #{pht_content})
+		insert into drama_photoboard(pht_bno, pht_title, pht_content, user_id)
+		values (#{pht_bno}, #{pht_title}, #{pht_content}, #{user_id})
 	</insert>
 	
 	

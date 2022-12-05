@@ -55,13 +55,19 @@ public class PhotoController {
 			model.addAttribute("photoDetail", ps.photoDetail(pbvo));
 			return "Photo/photoDetail";
 	    }
+		
+		@RequestMapping(value = "/photo/Modify", method = RequestMethod.GET)
+		public String photoModify(PhotoBoardVO pbvo, Model model) {
+			model.addAttribute("photoModify", ps.photoDetail(pbvo));
+			return "/Photo/photoModify";
+		}
 
 		
 		@RequestMapping(value = "/photo/Modify", method = RequestMethod.POST)
 		public String photoModify(PhotoBoardVO pbvo, RedirectAttributes rttr) {
 	    	ps.photoModify(pbvo);
 	    	rttr.addAttribute("pht_bno", pbvo.getPht_bno());
-	    	return "redirect:/photo/List";
+	    	return "redirect:/photo/Detail";
 	    }
 		
 		
