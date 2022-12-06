@@ -17,9 +17,9 @@
 	<form id="pht_form" action="/photo/Write" method="post">
 	
 	제목 : <input type="text" name="pht_title"><br>
-	내용 : <input type="text" name="pht_content">
+	아이디 : <input type="text" readonly value="${sessionScope.user_id}" name="user_id"><br>
+	내용 : <input type="text" name="pht_content"><br>
 	
-	<input type="text" value="${sessionScope.user_id}" name="user_id">
 	
 	<input type="file" name="pht_file" multiple><br>
 	<input type="button" id="pht_btn" value="등록"><br>

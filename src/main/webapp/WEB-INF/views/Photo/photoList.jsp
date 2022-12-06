@@ -7,35 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    
-<script>
-$(document).ready(function(){
-	
-	var pht_bno=$("input[name='pht_bno']").val();
-
-	console.log(pht_bno)
-	
-	$.getJSON("/photo_attachlist",{pht_bno:pht_bno},function(photo_attachlist){
-		console.log(photo_attachlist);
-		
-		var str="";
-		$(photo_attachlist).each(function(i, attach){
-			console.log(attach);
-
-				var filePath=encodeURIComponent(attach.pht_uploadPath+"/s_"+attach.pht_uuid+"_"+attach.pht_fileName)
-				console.log(filePath)
-				str+="<img src='/photoDisplay?pht_fileName="+filePath+"'>"
-			})
-		
-			$(".imgUrl td").html(str);
-		})
-		
-	}) 
-
-</script>
-
-
 </head>
 <body>
 
@@ -56,42 +27,50 @@ $(document).ready(function(){
 	</form>
 	
 
-	<table border="1">
-		<tr>
-			<th>번호</th>
-			<!-- <th>rownum</th> -->
-			<th>제목</th>
-			<th>날짜</th>
-			<th>조회수</th>
-			<th>아이디</th>
-			<th>사진</th>
-		</tr>
-		<!-- for문 시작 -->
+	<div>
 		<c:forEach items="${photoList}" var="photoList">
-		<tr>
-			<td><input type="text" readonly name="pht_bno" value="${photoList.pht_bno}"></td>
-			<!-- <td>${photoList.pht_rownum}</td>-->
-			<td><a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_title}</a></td>
-			<td>${photoList.pht_regdate}</td>
-			<td>${photoList.pht_cnt}</td>
-			<td>${photoList.user_id}</td>
-			<td class="imgUrl">
-				<!-- <input type="hidden" value="${photoList.pht_fileName}"> -->
-				<!-- <img class="imgUrl" src="/photoDisplay?pht_fileName=${photoList.pht_fileName }" width="100px" height="100px"> -->
-				<!--  <img class="imgUrl" width="100px" height="100px">-->
-			</td>
-		</tr>
-		</c:forEach>
-	</table>
-	<div id="pht_limage">
-		<ul>
+			<a href="/photo/Detail?pht_bno=${photoList.pht_bno}">
+				<ul>
+					<li>
+						<input type="text" readonly name="pht_bno" value="${photoList.pht_bno}">
+					</li>
+					<li>
+						${photoList.pht_rownum}
+					</li>
+					<li>
+						<a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_title}</a>
+					</li>
+					<li>
+						${photoList.pht_regdate}
+					</li>
+					<li>
+						${photoList.pht_cnt}
+					</li>
+					<li>
+						${photoList.user_id}
+					</li>
+					<li>
+						${photoList.pht_fileName}
+					</li>
+					<li class="">
+						<div class="">
+							<div class="imgUrl" data-name="${photoList.pht_fileName}" data-filename="${photoList.pht_fileName}">
+                         	  <img>
+                       	    </div>
+						 </div>	
 		
-		</ul>
+						
+						
+						
+						
+						<a href="/photo/Detail?pht_bno=${photoList.pht_bno}">
+							<img>
+						</a>
+					</li>
+				</ul>
+			</a>
+		</c:forEach>
 	</div>
-	
-	
-	
-	
 
 	<c:if test="${paging.prev}">
 		<a href="/photo/List?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.startPage-1}&amount=${paging.cri.amount}">이전</a>
