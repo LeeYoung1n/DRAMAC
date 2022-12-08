@@ -24,7 +24,7 @@
 	from(
 		select @rownum :=@rownum+1 rownum, drama_photoboard.*
 		from 
-			(select drama_photoboard.pht_bno,pht_title,pht_content,pht_writer,pht_regdate,pht_cnt,user_id,Concat(Replace(pht_uploadPath,'\\','/'),'/',pht_uuid,'-',pht_fileName)pht_fileName
+			(select drama_photoboard.pht_bno,pht_title,pht_content,pht_writer,pht_regdate,pht_cnt,user_id,Concat(Replace(pht_uploadPath,'\\','/'),'/',pht_uuid,'_',pht_fileName)pht_fileName
 			from drama_photo inner join drama_photoboard
 				on drama_photo.pht_bno = drama_photoboard.pht_bno
 				<if test="keyword != null">

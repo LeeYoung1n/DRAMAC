@@ -26,34 +26,19 @@
 		<input type="button" value="검색">
 	</form>
 	
-	<table border="1">
-		<tr>
-			<th>번호</th>
-			<!-- <th>rownum</th> -->
-			<th>제목</th>
-			<th>날짜</th>
-			<th>조회수</th>
-			<th>아이디</th>
-			<th>사진</th>
-		</tr>
-		<!-- for문 시작 -->
+	
+	<ul id="abcd">
 		<c:forEach items="${photoList}" var="photoList">
-		<tr>
-			<td><input type="text" readonly name="pht_bno" value="${photoList.pht_bno}"></td>
-			<!-- <td>${photoList.pht_rownum}</td>-->
-			<td><a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_title}</a></td>
-			<td>${photoList.pht_regdate}</td>
-			<td>${photoList.pht_cnt}</td>
-			<td>${photoList.user_id}</td>
-			<td class="imgUrl">
-				<img class ="toto" src="">
-				<!-- <input type="hidden" value="${photoList.pht_fileName}"> -->
-				<!-- <img class="imgUrl" src="/photoDisplay?pht_fileName=${photoList.pht_fileName }" width="100px" height="100px"> -->
-				<!--  <img class="imgUrl" width="100px" height="100px">-->
-			</td>
-		</tr>
+			<li><input type="hidden" name="pht_bno" value="${photoList.pht_bno}"></li>
+			<li><a href="/photo/Detail?pht_bno=${photoList.pht_bno}"><img src="/photoDisplay?pht_fileName=${photoList.pht_fileName}" width="100px" height="100px"></a></li>
+			<li><a href="/photo/Detail?pht_bno=${photoList.pht_bno}">${photoList.pht_title}</a></li>
+			<li>${photoList.pht_regdate}</li>
+			<li>${photoList.pht_cnt}</li>
+			<li>${photoList.user_id}</li>
+			
 		</c:forEach>
-	</table>
+	</ul>
+	
 
 	
 
