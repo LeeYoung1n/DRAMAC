@@ -75,7 +75,7 @@
     </delete>
     
 	<update id="photoCnt">
-		UPDATE DRAMA_PHOTOBOARD 
+		UPDATE DRAMA_PHOTOBOARD
 		SET PHT_CNT = PHT_CNT+1 
 		WHERE PHT_BNO=#{pht_bno}
 	</update>
